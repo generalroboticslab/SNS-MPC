@@ -5,7 +5,7 @@ _Duke University_ <br>
 <span style="font-size:17px; display: block; text-align: left;">
     <a href=https://generalroboticslab.com/SNS-MPC target="_blank" style="text-decoration: underline;">[Project Page]</a> 
     <a href=https://youtu.be/ViwE7hVG-J4?si=Nq25zR65D3Kooub8 target="_blank" style="text-decoration: underline;">[Video]</a>
-    <a href=TBD target="_blank" style="text-decoration: underline;">[arXiv]</a> <br>
+    <a href=https://arxiv.org/abs/2601.12169 target="_blank" style="text-decoration: underline;">[arXiv]</a> <br>
 </span>
 
 <p align="center">
@@ -31,10 +31,10 @@ If you find this repo useful, please consider citing,
       title={Learning Legged MPC with Smooth Neural Surrogates}, 
       author={Samuel A. Moore and Easop Lee and Boyuan Chen},
       year={2026},
-      eprint={2601.00000},
+      eprint={2601.12169},
       archivePrefix={arXiv},
       primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2601.00000}, 
+      url={https://arxiv.org/abs/2601.12169}, 
 }
 ```
 
