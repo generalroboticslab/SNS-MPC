@@ -26,11 +26,11 @@ ACTUATOR_NETWORK = repo_path("actuator_logs", "actuator_network")
 ACTUATOR_NETWORK_200HZ = repo_path("actuator_logs", "actuator_network_200hz")
 ACTUATOR_DATA_200HZ = repo_path("actuator_logs", "data_200hz.npz")
 
-OPEN_SANS_REGULAR_TTF = repo_path("OpenSans-Regular.ttf")
+OPEN_SANS_REGULAR_TTF = repo_path("fonts", "Open_Sans", "OpenSans-Regular.ttf")
 HELVETICA_FONT_PATHS = (
-    repo_path("helvetica-255", "Helvetica.ttf"),
-    repo_path("helvetica-255", "Helvetica-Bold.ttf"),
-    repo_path("helvetica-255", "Helvetica-Oblique.ttf"),
+    repo_path("fonts", "helvetica-255", "Helvetica.ttf"),
+    repo_path("fonts", "helvetica-255", "Helvetica-Bold.ttf"),
+    repo_path("fonts", "helvetica-255", "Helvetica-Oblique.ttf"),
 )
 
 EXAMPLE_CHECKPOINT_DIR = repo_path(
