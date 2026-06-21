@@ -1,0 +1,42 @@
+trial_name: "go2_mppi"
+
+seed: 0
+jit: true
+headless: true
+save_video: true
+video_text: true
+steps_per_episode: 550 #1550
+debug: true
+camera_kwargs:
+        distance: 1.6
+        azimuth: 45.0
+        elevation: -20.0
+
+nn_dynamics_path: "./Trained_models/Primary/Ckpt/Lipschitz_2025-07-14_15-48-44/ckpt_Lipschitz_MPPI_Policy_2025-07-14_15-49-01_dynamics_params.npz"
+nn_observer_path: "./Trained_models/Primary/Ckpt/Lipschitz_2025-07-14_15-48-44/ckpt_Lipschitz_MPPI_Policy_2025-07-14_15-49-01_observer_params.npz"
+
+nn_policy_type: "mppi"
+nn_policy_kwargs:
+        n_knots: 6
+        spline_order: 1
+        n_rollouts: 512
+        n_iters: 6 # iters > 1 is dial-mpc
+        temperature: 0.02
+        traj_diffuse_fctr: 0.8 #0.8
+        horizon_diffuse_fctr: 1.0 #0.95
+
+        verbose: False
+                 
+
+# nn_policy_type: "mppi"
+# nn_policy_kwargs:
+#         n_knots: 5
+#         spline_order: 1
+#         n_rollouts: 256
+#         n_iters: 7 # iters > 1 is dial-mpc
+#         temperature: 0.05
+#         traj_diffuse_fctr: 0.8 #0.8
+#         horizon_diffuse_fctr: 0.95  #1.0 #0.95 #0.9
+
+#         verbose: False
+                 

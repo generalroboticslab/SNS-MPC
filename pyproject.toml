@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nnmpc"
+version = "0.1.0"
+description = "Neural dynamics for model predictive control"
+authors = [
+    {name = "Sam Moore"},
+]
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["Common*", "Training*", "Policies*", "Mj_models*", "Deploy_simulation*"]
+exclude = ["Configs*"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}

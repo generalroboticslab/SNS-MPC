@@ -1,0 +1,14 @@
+mujoco==3.2.0
+scipy==1.13.1
+numpy==2.0.2
+mujoco-python-viewer==0.1.4
+matplotlib==3.9.2
+tqdm==4.66.5
+scikit-learn==1.6.1
+torch==2.6.0
+interpax==0.3.7
+jax[cuda]==0.5.3
+optax==0.2.4
+dill==0.4.0
+imageio-ffmpeg==0.6.0
+pillow==11.2.1

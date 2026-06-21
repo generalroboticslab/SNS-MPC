@@ -1,0 +1,37 @@
+trial_name: "evaluation"
+
+seed: 100
+n_seeds: 5
+jit: true
+headless: true
+save_video: true
+video_text: true
+steps_per_episode: 550
+debug: false
+with_state_estimation: true
+camera_kwargs:
+        distance: 1.6
+        azimuth: 45.0
+        elevation: -20.0
+
+ckpt_dirs:
+  - "./Trained_models/Primary/Ckpt/Lipschitz_2025-07-14_15-48-44"
+ckpt_names:
+  - "Example SNS MLP"
+
+steps: [12500]
+
+nn_policy_type: "mppi"
+nn_policy_kwargs:
+        n_knots: 6 
+        n_rollouts: 128
+        spline_order: 1
+        n_iters: 4 # iters > 1 is dial-mpc
+        temperature: 0.02
+        traj_diffuse_fctr: 0.8 #0.8
+        horizon_diffuse_fctr: 1.0  #1.0 #0.95 #0.9
+
+        verbose: False
+
+        jit: True
+                 

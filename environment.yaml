@@ -1,0 +1,19 @@
+name: nnmpc
+channels:
+  - conda-forge
+  - anaconda
+  - menpo
+  - nvidia/label/cuda-12.4.0
+  - defaults
+
+dependencies:
+  - python=3.10
+  - cuda-toolkit
+  - glew
+  - mesalib
+  - mesa-libgl-cos6-x86_64
+  - glfw3
+
+variables:
+  MUJOCO_GL: egl
+  PYOPENGL_PLATFORM: egl

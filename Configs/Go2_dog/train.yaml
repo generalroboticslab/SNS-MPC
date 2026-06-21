@@ -1,0 +1,73 @@
+trial_name: "actuator_net"
+
+buffer_size: 2048 #20480
+n_training_steps: 100000
+lr_dynamics: 0.0008
+lr_observer: 0.0004
+weight_decay_dynamics: 0.0
+weight_decay_observer: 0.0
+batch_size: 512
+accum_steps: 1
+n_workers: 8 # For the dataloader
+seed: 0
+jit: true
+headless: true
+n_envs: 64
+n_env_workers: 10 # For the data collection policy
+save_video: false
+buffer_path: ./Data/buffer_seed_0.dill    #null
+buffer_save: false
+n_blocks: 19 # Total Horizon is T * n_blocks or T * n_blocks * 0.02 , Each model is trained to predict T steps and the training loss uses 2 blocks with and without teacher forcing
+# Rollouts and data collection occur at 100hz, but the model is trained at 50hz to reduce the overall size
+# The actions input to the model come from liner splines, which are has knots at 50hz
+# For the Go2 we test (T=1, n_blocks=18), (T=2, n_blocks=9), (T=3, n_blocks=6), (T=6, n_blocks=3), (T=9, n_blocks=2), (T=18, n_blocks=1) 
+# So, the planning Horizon for the Go2 is fixed at 0.36s
+
+loss_kwargs:
+        cauchy: True
+        alpha_lipschitz_dynamics: 10.0
+        alpha_lipschitz_observer: 0.00001
+        smooth_term: True
+
+nn_dynamics_kwargs:
+        Lipschitz: True
+        Lipschitz_ub: 8000
+        order: 1
+        hidden_scale: [1.5, 1.5, 1.25, 1.0] 
+        T: 1 
+        H: 8
+        w_torque: False
+        activation: "mish"
+        SNS: True
+        hard: False
+
+nn_observer_kwargs:
+        Lipschitz: True
+        Lipschitz_ub: 1 #100000 #1000000
+        hidden_scale: [1.5, 1.25, 1.0, 0.75]
+        H_Obs: 10
+        H: 8
+        naive: False
+        reduced: True
+        activation: "mish"
+        SNS: True
+        hard: False
+
+
+nn_policy_type: "spline_shooter"
+nn_policy_kwargs:
+        n_linesearch_steps: 16
+        n_iters: 1
+        spline_order: 1
+        n_knots: 5
+        qp_alpha_init: 1.0
+        lm_damping: 0.0 #0.000001 #0.000001 #0.000001
+        _lambda_init: 0.0 #0.25
+        rho_init: 1.0 #1.0
+
+        verbose: False
+        jit: True
+                 
+                 
+data_collection_kwargs:
+        steps_per_episode: 256

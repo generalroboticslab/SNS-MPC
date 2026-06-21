@@ -1,0 +1,30 @@
+trial_name: "go2_behavior_sequence_april"
+
+seed: 0
+jit: true
+headless: true
+save_video: true
+video_text: true
+steps_per_episode: 550 #1550 #550 
+debug: true
+camera_kwargs:
+        distance: 1.6
+        azimuth: 45.0
+        elevation: -20.0
+
+nn_dynamics_path: "./Trained_models/Primary/Ckpt/Lipschitz_2025-07-14_15-48-44/ckpt_Lipschitz_MPPI_Policy_2025-07-14_15-49-01_dynamics_params.npz"
+nn_observer_path: "./Trained_models/Primary/Ckpt/Lipschitz_2025-07-14_15-48-44/ckpt_Lipschitz_MPPI_Policy_2025-07-14_15-49-01_observer_params.npz"
+
+nn_policy_type: "spline_shooter"
+nn_policy_kwargs:
+        n_linesearch_steps: 16
+        n_iters: 1
+        spline_order: 1
+        n_knots: 6
+        qp_alpha_init: 1.0
+        lm_damping: 0.0 #0.000001 #0.000001 #0.000001
+        _lambda_init: 0.0 #0.25
+        rho_init: 1.0 #1.0
+
+        verbose: False
+                 

@@ -1,0 +1,79 @@
+<mujoco model="go2 scene">
+  <include file="go2_torque.xml" />
+
+  <statistic center="0 0 0.1" extent="0.8" />
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0" />
+    <rgba haze="0.15 0.25 0.35 1" />
+    <global azimuth="-130" elevation="-20" />
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072" />
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"  markrgb="1 1 1" width="300" height="300" />
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="1 1" reflectance="0.2" />
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 10" dir="0 0 -1" directional="true" />
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane" />
+  </worldbody>
+
+  <sensor>
+  
+    <jointpos name="FL_hip_pos" joint="FL_hip_joint" />
+    <jointpos name="FL_thigh_pos" joint="FL_thigh_joint" />
+    <jointpos name="FL_calf_pos" joint="FL_calf_joint" />
+    <jointpos name="FR_hip_pos" joint="FR_hip_joint" />
+    <jointpos name="FR_thigh_pos" joint="FR_thigh_joint" />
+    <jointpos name="FR_calf_pos" joint="FR_calf_joint" />
+    <jointpos name="RL_hip_pos" joint="RL_hip_joint" />
+    <jointpos name="RL_thigh_pos" joint="RL_thigh_joint" />
+    <jointpos name="RL_calf_pos" joint="RL_calf_joint" />
+    <jointpos name="RR_hip_pos" joint="RR_hip_joint" />
+    <jointpos name="RR_thigh_pos" joint="RR_thigh_joint" />
+    <jointpos name="RR_calf_pos" joint="RR_calf_joint" />
+
+    <jointvel name="FL_hip_vel" joint="FL_hip_joint" />
+    <jointvel name="FL_thigh_vel" joint="FL_thigh_joint" />
+    <jointvel name="FL_calf_vel" joint="FL_calf_joint" />
+    <jointvel name="FR_hip_vel" joint="FR_hip_joint" />
+    <jointvel name="FR_thigh_vel" joint="FR_thigh_joint" />
+    <jointvel name="FR_calf_vel" joint="FR_calf_joint" />
+    <jointvel name="RL_hip_vel" joint="RL_hip_joint" />
+    <jointvel name="RL_thigh_vel" joint="RL_thigh_joint" />
+    <jointvel name="RL_calf_vel" joint="RL_calf_joint" />
+    <jointvel name="RR_hip_vel" joint="RR_hip_joint" />
+    <jointvel name="RR_thigh_vel" joint="RR_thigh_joint" />
+    <jointvel name="RR_calf_vel" joint="RR_calf_joint" />
+
+    <jointactuatorfrc name="FL_hip_torque" joint="FL_hip_joint" noise="0.01" />
+    <jointactuatorfrc name="FL_thigh_torque" joint="FL_thigh_joint" noise="0.01" />
+    <jointactuatorfrc name="FL_calf_torque" joint="FL_calf_joint" noise="0.01" />
+    <jointactuatorfrc name="FR_hip_torque" joint="FR_hip_joint" noise="0.01" />
+    <jointactuatorfrc name="FR_thigh_torque" joint="FR_thigh_joint" noise="0.01" />
+    <jointactuatorfrc name="FR_calf_torque" joint="FR_calf_joint" noise="0.01" />
+    <jointactuatorfrc name="RL_hip_torque" joint="RL_hip_joint" noise="0.01" />
+    <jointactuatorfrc name="RL_thigh_torque" joint="RL_thigh_joint" noise="0.01" />
+    <jointactuatorfrc name="RL_calf_torque" joint="RL_calf_joint" noise="0.01" />
+    <jointactuatorfrc name="RR_hip_torque" joint="RR_hip_joint" noise="0.01" />
+    <jointactuatorfrc name="RR_thigh_torque" joint="RR_thigh_joint" noise="0.01" />
+    <jointactuatorfrc name="RR_calf_torque" joint="RR_calf_joint" noise="0.01" />
+
+
+    <framequat name="imu_quat" objtype="site" objname="imu" />
+    <gyro name="imu_gyro" site="imu" />
+    <accelerometer name="imu_acc" site="imu" />
+    
+    <framepos name="imu_pos_w" objtype="site" objname="imu" />
+    <framelinvel name="imu_vel_w" objtype="site" objname="imu" />
+
+    <velocimeter name="base_vel" site="base_site" />
+    <gyro name="base_gyro" site="base_site" />
+    <framepos name="base_pos_w" objtype="site" objname="base_site" />
+    <framequat name="base_quat_w" objtype="site" objname="base_site" />
+    <framelinvel name="base_vel_w" objtype="site" objname="base_site"  />
+
+  </sensor>
+</mujoco>
