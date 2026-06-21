@@ -104,14 +104,13 @@ The repository keeps the runtime assets needed by the supported workflows:
 - `actuator_logs/actuator_network_params.npz` and `actuator_logs/actuator_network_200hz_params.npz` are the shipped actuator networks used by the simulation stack.
 - `Trained_models/Primary/Ckpt/Lipschitz_2025-07-14_15-48-44/` contains a retained example checkpoint and the associated state/action/observation normalization artifacts used by the public configs.
 
-## Actuator Model Provenance
+## Actuator Network and Real-Robot Data
 
 `train_actuator_net.py` is retained as a secondary utility for reproducing actuator-model assets.
 
 The repo keeps the actuator training artifacts it depends on:
 
-- `actuator_logs/data_200hz.npz`
-- `actuator_logs/log.pkl`
+- `actuator_logs/data_200hz.npz` is the dataset of real-robot trajectories used to train the 200Hz actuator network.
 
 So, if you want to retrain the actuator model, you can run:
 

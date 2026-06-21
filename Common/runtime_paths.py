@@ -25,7 +25,6 @@ GO2_TORQUE_XML = repo_path("Mj_models", "Go2_dog", "go2_torque.xml")
 ACTUATOR_NETWORK = repo_path("actuator_logs", "actuator_network")
 ACTUATOR_NETWORK_200HZ = repo_path("actuator_logs", "actuator_network_200hz")
 ACTUATOR_DATA_200HZ = repo_path("actuator_logs", "data_200hz.npz")
-ACTUATOR_LOG_PKL = repo_path("actuator_logs", "log.pkl")
 
 OPEN_SANS_REGULAR_TTF = repo_path("OpenSans-Regular.ttf")
 HELVETICA_FONT_PATHS = (
